@@ -1,0 +1,91 @@
+@charset "utf-8";
+/*******************************************************************
+
+				Affects everything
+					
+***************************************************************************/
+
+body {
+	/*top, bottom & right, left*/
+	margin: 0px 0px;
+}
+
+li {
+	font-family: "Baskerville";
+	font-size: 24px;
+}
+
+/*******************************************************************
+
+					Heading
+					
+***************************************************************************/ 
+
+header {
+	width: auto;
+	height: 70%;
+	background-color: #f16a38;
+	display: flex; 	
+	justify-content: center;
+	flex-wrap: wrap;
+}
+	
+img.siteLogo { 
+	/*or 6%*/
+	width: 85px;
+	height: auto;
+	/*top bottom, right left*/
+	margin: 0% 4%;
+}
+nav {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+	nav li { 
+		list-style-type: none;
+		float: left;
+		margin-right: 56px;
+	}
+	nav a {
+		color: white;
+		text-decoration: none;
+	}
+
+/*home page indicator*/
+.home a:target {
+	position: relative;
+}
+.home a:target:after{ 
+	content: "";
+	display: block;
+	height: 7px;
+	width: 58px;
+	background-color: #af4e00;
+	border-radius: 30px;
+}
+/*about page indicator*/
+.about a:target {
+	position: relative;
+}
+.about a:target:after{ 
+	content: "";
+	display: block;
+	height: 7px;
+	width: 90px;
+	background-color: #af4e00;
+	border-radius: 30px;
+}
+/*contact page indicator*/
+.contact a:target {
+	position: relative;
+}
+.contact a:target:after{ 
+	content: "";
+	display: block;
+	height: 7px;
+	width: 107px;
+	background-color: #af4e00;
+	border-radius: 30px;
+}
+
