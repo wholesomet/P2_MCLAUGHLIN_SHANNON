@@ -10,12 +10,12 @@ body {
 	margin: 0px 0px;
 }
 
-li {
+nav li {
 	font-family: "Baskerville";
 	font-size: 24px;
 }
 
-p {
+p, h2 {
 	font-family: "Baskerville";
 } 
 
@@ -285,22 +285,61 @@ nav {
 			everything else in body 
 					
 ***************************************************************************/ 
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card { 
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+.map h2 { 
+	width: 63%;
+	text-align: center;
+} 
 
 iframe {
 	width: 18em;
-	height: 15em;
+	height: 22em;
 	border: 0em; 
 }
-
-.menu-heading {
-	z-index: 1;
+	/*********** Menu *****************/
+.menu:before  { 
+	content: "";
+	height: 352px;
+	width: 276px;
+	background-color: rgb(0 0 0 / 8%);
 	position: relative;
+	top: 57%;
+	margin: -56%;
+	z-index: 3;
+	pointer-events: none;
+}
+	@media (max-width: 800px) {
+		.menu:hover:before, .menu:active:before { 
+			content: "";
+			height: 352px;
+			width: 276px;
+			background-color: red;
+			position: relative;
+			top: 5%;
+		}
+	}
+
+a#menu-inside { 
+	color: white;
+}
+.menu-heading {
+	z-index: 2;
+	position: relative;
+	top: 47%;
+	transform: rotate(0.14turn);
 }
 .menu-front {
 	width: 18em;   
 	height: auto; 
-	z-index: 2;
-	position: absolute; 
-
-
 } 
