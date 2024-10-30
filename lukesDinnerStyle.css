@@ -15,6 +15,10 @@ li {
 	font-size: 24px;
 }
 
+p {
+	font-family: "Baskerville";
+} 
+
 /*******************************************************************
 
 					Heading
@@ -278,6 +282,25 @@ nav {
 
 /*******************************************************************
 
-					-----
+			everything else in body 
 					
 ***************************************************************************/ 
+
+iframe {
+	width: 18em;
+	height: 15em;
+	border: 0em; 
+}
+
+.menu-heading {
+	z-index: 1;
+	position: relative;
+}
+.menu-front {
+	width: 18em;   
+	height: auto; 
+	z-index: 2;
+	position: absolute; 
+
+
+} 
