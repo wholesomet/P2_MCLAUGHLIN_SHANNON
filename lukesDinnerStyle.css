@@ -8,8 +8,9 @@
 body {
 	/*top, bottom & right, left*/
 	margin: 0px 0px;
+	overflow-x: hidden;
 }
-
+	
 nav li {
 	font-family: "Baskerville";
 	font-size: 24px;
@@ -24,18 +25,34 @@ p, h2, table {
 					Heading
 					
 ***************************************************************************/ 
-
 header {
 	width: auto;
 	height: 70%;
 	background-color: #f16a38;
-	display: flex; 	
-	justify-content: center;
-	flex-wrap: wrap;
+		
 }
+	@media (min-width: 1318px) { 
+		header { 
+			display: flex; 
+			justify-content: center;
+		}
+	}
+	@media (max-width: 1318px) { 
+		header { 
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			flex-wrap: wrap;
+			align-items: center;
+		} 
+		img.siteLogo, nav { 
+			position: relative;
+			left: 4%;
+			
+		}
+	}
 	
 img.siteLogo { 
-	/*or 6%*/
 	width: 85px;
 	height: auto;
 	/*top bottom, right left*/
@@ -60,7 +77,8 @@ nav {
 .home a:target {
 	position: relative;
 }
-.home a:target:after{ 
+/*how do I make these show up only on the coresponding page without targets*/
+.home:after{ 
 	content: "";
 	display: block;
 	height: 7px;
@@ -95,15 +113,69 @@ nav {
 
 /*******************************************************************
 
+					Main
+					
+***************************************************************************/ 
+@media (max-width: 1318px) { 
+		main { 
+			position: relative; 
+			left: 4%;
+		} 
+		main, img.siteLogo, nav { 
+			align-content: center;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+/*******************************************************************
+
 					carousel
 					
 ***************************************************************************/ 
+.carousel-outside { 
+	height: 312px;
+	display: flex;
+	flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+} 
+	@media (min-width: 1318px) { 
+		.carousel-outside ~ p {
+			position: relative;
+			left: 56%;
+			top: -200px;
+			width: 35%; 
+			text-align: center;
+			/*top right bottom left
+			margin: 50px 4px 0px 0px;*/
+		}
+	} 
+	@media (max-width: 1318px) { 
+		.carousel-outside { 
+			position: relative;
+			right: 50px;
+		}
+			.carousel-outside ~ p { 
+				width: 502px;
+				position: relative;
+				text-align: center;
+				/*top right bottom left*/
+				padding: 39px 0px 74px 0px;
+			}
+		.carousel-control-prev { 
+			display: flex; 
+		}
+	}
+	
 .carousel {
     position: relative;
 	/*top bottom, right left*/
-	margin: 2% 0%;
+	margin: 20px 0px;
     margin-right: auto;
-    width: 960px;
+    width: 699px;
 }
 
 
@@ -131,10 +203,11 @@ nav {
 }
 
 .d-block {
-	height: auto;
-	width: 510px;
 	position: relative;
-	left: 156px;
+	height: 260px;
+	width: 510px;
+	object-fit: cover;
+	left: 156px; 
 }
 
 .carousel-item-next,.carousel-item-prev,.carousel-item.active {
@@ -142,7 +215,7 @@ nav {
 }
 
 .carousel-item-next,.carousel-item-prev {
-    position: absolute;
+	position: relative;
     top: 0
 }
 
@@ -182,11 +255,10 @@ nav {
     }
 }
 
-@media (min-width: 800px) {
+		/*controls/arrows*/
 	.carousel-control-next,.carousel-control-prev {
-		position: absolute;
-		top: 0;
-		bottom: -40px;
+		position: relative;
+		/*bottom: -40px;*/
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -196,40 +268,13 @@ nav {
 		-webkit-box-pack: center;
 		-ms-flex-pack: center;
 		justify-content: center;
-		width: 3%;
+		width: 35px;
+		/*height: 388px;*/
 		color: #fff;
 		text-align: center;
 		opacity: .5;
 		z-index: 15;
-
 	}
-} 
-@media (max-width: 800px) {
-	body {
-		background-color: blue;
-	}
-	.carousel-indicators { 
-	position: absolute ;
-		right: 0 !important;
-		bottom: -40px !important;
-	}
-	.carousel-control-next,.carousel-control-prev { 
-				position: absolute;
-
-		width: 6%;
-	}
-	.carousel-control-prev {
-		position: absolute;
-		left: 77px !important;
-	}
-	.carousel-control-next {
-		position: absolute;
-		right: 207px !important;
-	}
-	
-	
-}
-
 
 .carousel-control-next:focus,.carousel-control-next:hover,.carousel-control-prev:focus,.carousel-control-prev:hover {
     color: #fff;
@@ -239,19 +284,20 @@ nav {
 }
 
 .carousel-control-prev {
-    left: 51px;
+    right: 613px;
+	top: 34px;
 }
 	.carousel-control-prev span:nth-of-type(2) {
 		display: none;
 	}
 
 .carousel-control-next {
-    right: 178px;
 }
 	.carousel-control-next span:nth-of-type(2) {
+		
 		display: none;
 	}
-
+	
 .carousel-control-next-icon,.carousel-control-prev-icon {
     display: inline-block;
     width: 20px;
@@ -260,11 +306,12 @@ nav {
     background-size: 100% 100%;
 }
 
+		/*indicators*/
 .carousel-indicators {
-    position: absolute;
+    position: relative;
     right: 0;
-    bottom: 10px;
-    left: 354px;
+	left: 354px;
+    bottom: -250px;
     z-index: 15;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -291,7 +338,7 @@ nav {
 }
 
 .carousel-indicators li::before {
-    position: absolute;
+    position: relative;
     top: -10px;
     left: 0;
     display: inline-block;
@@ -301,7 +348,7 @@ nav {
 }
 
 .carousel-indicators li::after {
-    position: absolute;
+    position: relative;
     bottom: -10px;
     left: 0;
     display: inline-block;
@@ -314,9 +361,6 @@ nav {
     background-color: #fff
 }
 
-.carousel ~ p { 
-	color: red;
-} 
 /*******************************************************************
 
 			everything else in body 
@@ -328,15 +372,51 @@ nav {
 	justify-content: space-around;
 	/*top bottom, right left*/
 	margin: 0% 4%;
+	
 }
-
-@media (max-width: 521px) {
-	.row { 
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+	/*creates gutters for larger screens*/
+	@media (min-width: 1318px) { 
+		.row { 
+			/*top bottom, right left*/
+			margin: 0px 114px;
+			max-width: 1178px;
+			position: relative; 
+			left: 73px;
+		} 
 	}
-}
+	
+	/*when row elements are verticaly aligned*/
+	@media (max-width: 1318px) {
+		/*centers .row div*/
+		.row { 
+		    justify-content: center;
+			position: relative;
+			max-width: 500px;
+		}
+		/*centers hour table and its heading*/
+		.map { 
+			position: relative; 
+			padding-bottom: 15px;
+		}
+		.hours, .menu { 
+			position: relative; 
+		}
+		.menu {
+			/*top right bottom left */
+			margin: 0px 130px 0px 140px;
+		}
+		.hours { 
+			margin-top: 70px;
+		}
+	}
+	
+	@media (max-width: 521px) {
+		.row { 
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
 
 .card { 
 	display: flex;
@@ -364,14 +444,14 @@ iframe {
 	width: 276px;
 	background-color: rgba(0, 0, 0, 0.2);
 	position: relative;
-	top: 57%;
+	bottom: -266px;
 	margin: -56%;
 	z-index: 3;
 	pointer-events: none;
 }
 
 /*to make the map, menu, and hour table look good when the viewport has a width of 650px and up*/
-@media (min-width: 650px) {
+@media (max-width: 650px) {
 	.row { 
 		display: flex;
 		flex-wrap: wrap;
@@ -426,5 +506,17 @@ table, tbody, th, td  {
 		font-size: 21px;
 	} 
 
-	
+	/*******************************************************************
+
+			everything else in body 
+					
+***************************************************************************/ 
+
+footer p { 
+	filter: contrast(20%);
+	text-align: center;
+	padding-top: 20px;
+	font-family: "Baskerville";
+	font-size: 16px;
+}
 	
